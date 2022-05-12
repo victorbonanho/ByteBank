@@ -53,7 +53,7 @@ namespace bytebank
             {
                 if (value <= 0)
                 {
-                    return;
+                    //return;?
                 }
                 else
                 {
@@ -133,15 +133,20 @@ namespace bytebank
             }
         }
 
-        public double GetSaldo()
-        {
-            return saldo;
-        }
+        //public double GetSaldo()
+        //{
+        //    return saldo;
+        //}
 
-        public ContaCorrente(int numero_agencia, string conta)
+        public ContaCorrente(Cliente titular, string nome_agencia, int numero_agencia, string conta)
         {
+            Titular = titular;
+            Nome_Agencia = nome_agencia;
             Numero_Agencia = numero_agencia;
             Conta = conta;
+            TotalDeContasCriadas += 1;
         }
+
+        public static int TotalDeContasCriadas { get; set; } //Static define a prorpiedade como estática, para ser uma característica da classe e não algo compartilhado com todos os objetos da classe.
     }
 }

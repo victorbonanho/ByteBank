@@ -87,19 +87,54 @@ Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
 //    Console.WriteLine("O campo titular esta nulo");
 //}
 
+//Cliente sarah = new Cliente();
+//sarah.Nome = "Sarah Silva";
+
+//ContaCorrente conta4 = new ContaCorrente(235, "123456-X");
+//conta4.Saldo = 100;//Boa prática
+//conta4.Titular = sarah;
+////conta4.Numero_Agencia = -10;
+////conta4.Conta = "";
+//Console.WriteLine(conta4.Titular.Nome);
+//Console.WriteLine(conta4.Saldo);
+//Console.WriteLine(conta4.Numero_Agencia);
+//Console.WriteLine(conta4.Conta);
+
+//Console.WriteLine("Saldo: " + conta4.GetSaldo());
+
+//Isso não dá bom -> Terá que adicionar a condição no contructor
+//ContaCorrente conta5 = new ContaCorrente(367, "765454-X");
+//conta5.TotalDeContasCriadas = 1;
+//ContaCorrente conta6 = new ContaCorrente(258, "234565-X");
+//conta6.TotalDeContasCriadas += 1;
+//Console.WriteLine(conta5.TotalDeContasCriadas);
+//Console.WriteLine(conta6.TotalDeContasCriadas);
+
+//Mas isso da bom
+ContaCorrente conta5 = new ContaCorrente(new Cliente(), "Bancao", 159, "152869-x");
+ContaCorrente conta6 = new ContaCorrente(new Cliente(), "Bancao", 159, "152869-x");
+
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+Console.WriteLine(conta6);
+
 Cliente sarah = new Cliente();
 sarah.Nome = "Sarah Silva";
+sarah.Profissao = "Professora";
+sarah.Cpf = "11111111-12";
 
-ContaCorrente conta4 = new ContaCorrente(235, "123456-X");
-conta4.Saldo = 100;//Boa prática
-conta4.Titular = sarah;
-//conta4.Numero_Agencia = -10;
-//conta4.Conta = "";
-Console.WriteLine(conta4.Titular.Nome);
-Console.WriteLine(conta4.Saldo);
-Console.WriteLine(conta4.Numero_Agencia);
-Console.WriteLine(conta4.Conta);
+Cliente ester = new Cliente();
+ester.Nome = "Ester Almeida";
+ester.Profissao = "Advogada";
+ester.Cpf = "868524125-32";
 
-Console.WriteLine("Saldo: " + conta4.GetSaldo());
+Console.WriteLine("Total de clientes: " + Cliente.TotalClientesCadastrados);
+
+ContaCorrente contaAndre = new ContaCorrente(new Cliente(),"Bancao",159, "152869-x");
+contaAndre.Titular = new Cliente();
+contaAndre.Titular.Nome = " André Pereira";
+contaAndre.Titular.Profissao = "Auxiliar Administrativo";
+contaAndre.Saldo = 100;
+
+Console.WriteLine("Total de clientes: " + Cliente.TotalClientesCadastrados);
 
 Console.ReadKey();
